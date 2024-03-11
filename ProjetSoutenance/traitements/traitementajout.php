@@ -1,7 +1,5 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set("display_errors",1);
 // CONNEXION A LA BASE DE DONNEES
 $servername = 'localhost';
 $username = 'root';
@@ -12,9 +10,7 @@ $password = '';
   } catch (Exception $e) {
     echo 'ERREUR :'.$e->getMessage();
   }
-
-  if (isset($_POST['ok'])) {
-    // ICI ON RECUPERE LES VALEURS DES CHAMPS DU FORMULAIRE
+   
     $titredumemoire = ($_POST['titredumemoire']);
     $resumer = ($_POST['resumer']);
     $motcles = ($_POST['motcles']);
@@ -25,12 +21,15 @@ $password = '';
     $filere = ($_POST['filere']);
     $anneesoutenance = ($_POST['anneesoutenance']);
     $languememoire = ($_POST['languememoire']);
-    $fichiermemoire = ($_FILES['fichiermemoire']);
-  
-    if(isset($titredumemoire, $resumer, $motcles, $datedesoutenance, $nomauteur, $numeroetudiant, $faculter, $filere, $anneesoutenance, $languememoire, $fichiermemoire) AND !empty($_POST['titredumemoire'])){
-  
-      $reqData = $bdd->prepare('SELECT count(*) as count FROM memoires WHERE email = ?');
-      $reqData->execute(array($email));
+
+
+    if(isset($titredumemoire, $resumer, $motcles, $datedesoutenance, $nomauteur, $numeroetudiant, $faculter, $filere, $anneesoutenance, $languememoire) AND !empty($_POST['titredumemoire'])){
+
+          // ICI ON RECUPERE LES VALEURS DES CHAMPS DU FORMULAIRE
+
+
+      $reqData = $bdd->prepare('SELECT count(*) as count FROM memoires WHERE titredumemoire = ?');
+      $reqData->execute(array($titredumemoire));
       $resultat = $reqData->fetch();
   
       if ($resultat['count'] > 0) {
@@ -57,8 +56,6 @@ $password = '';
                 }else {
                 echo 'Veillez remplir tous les champs !';
                 }
-  }
-
   
 
      /* // Définir les variables

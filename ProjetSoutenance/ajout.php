@@ -52,7 +52,7 @@
                     </div><br>
                     <div>
                         <label for="filere" style="margin-right: 360px;">Filière/Programme</label><br>
-                        <input class="form-control"  type="text" id="filere" name="filiere">
+                        <input class="form-control"  type="text" id="filere" name="filere">
                     </div><br>
                     <div>
                         <label for="anneesoutenance" style="margin-right: 340px;">Année de soutenance</label><br>
@@ -64,11 +64,11 @@
                     </div><br>
                     <div class="mb-3">
                         <label for="fichiermemoire" class="form-label" style="margin-right: 355px;">Fichier du mémoire </label>
-                        <input class="form-control" type="file" id="fichiermemoire">
+                        <input class="form-control" type="file" id="fichiermemoire" name="fichiermemoire">
                     </div>
 
                     <div>
-                        <input class="btn btn-secondary" style="background-color: gray; border-radius:9px" type="submit" value="Ajouter" name="titredumemoire">
+                        <input class="btn btn-secondary" style="background-color: gray; border-radius:9px" type="submit"  name="titredumemoire">
                     </div><br>
                 </form>
             </div>
